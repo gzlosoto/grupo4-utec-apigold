@@ -1,7 +1,6 @@
 package com.grupo4.api.controller;
 
 import com.grupo4.api.model.Container;
-import com.grupo4.api.model.Musica;
 import com.grupo4.api.service.ContainerCommandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/containers")
+@RequestMapping("/api/container")
 public class ContainerCommandController {
 
     private final ContainerCommandService service;
@@ -20,22 +19,12 @@ public class ContainerCommandController {
     }
 
     @GetMapping
-    public List<Musica> getAllContainers() {
-        return service.getAllContainers();
+    public List<Container> getAll() {
+        return service.getAll();
     }
 
     @GetMapping("/{id}")
-    public Musica getContainerById(@PathVariable long id) {
-        return service.getContainerById(id);
-    }
-
-    @PostMapping
-    public Container createContainer(@RequestBody Container container) {
-        return service.createContainer(container);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteContainer(@PathVariable String id) {
-        service.deleteContainer(id);
+    public Container getById(@PathVariable long id) {
+        return service.getById(id);
     }
 }

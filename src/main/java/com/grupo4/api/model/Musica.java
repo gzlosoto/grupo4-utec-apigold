@@ -17,8 +17,7 @@ import lombok.NoArgsConstructor;
 public class Musica {
 	
 	
-	private long IdCancion;
-		
+	private long IdCancion;		
 	private String Cancion;
 	
 	@DynamoDBHashKey(attributeName = "IdCancion")

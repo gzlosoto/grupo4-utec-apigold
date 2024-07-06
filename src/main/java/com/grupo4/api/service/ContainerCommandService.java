@@ -1,9 +1,7 @@
 package com.grupo4.api.service;
 
 import com.grupo4.api.model.Container;
-import com.grupo4.api.model.Musica;
-import com.grupo4.api.repository.MockContainerRepository;
-import com.grupo4.api.repository.MusicaRepository;
+import com.grupo4.api.repository.ContainerRepository;
 
 import org.springframework.stereotype.Service;
 
@@ -12,28 +10,17 @@ import java.util.List;
 @Service
 public class ContainerCommandService {
 
-    private final MockContainerRepository repository;
-    private final MusicaRepository musicaRepository;
+    private final ContainerRepository containerRepository;
 
-    public ContainerCommandService(MockContainerRepository repository, 
-    						MusicaRepository musicaRepository) {
-        this.repository = repository;
-        this.musicaRepository = musicaRepository;
+    public ContainerCommandService(ContainerRepository containerRepository) {
+        this.containerRepository = containerRepository;
     }
 
-    public List<Musica> getAllContainers() {
-        return musicaRepository.getMusica();
+    public List<Container> getAll() {
+        return containerRepository.getContainer();
     }
 
-    public Musica getContainerById(long id) {
-        return musicaRepository.getMusicaById(id);
-    }
-
-    public Container createContainer(Container container) {
-        return repository.save(container);
-    }
-
-    public void deleteContainer(String id) {
-        repository.deleteById(id);
+    public Container getById(long id) {
+        return containerRepository.getContainerById(id);
     }
 }
