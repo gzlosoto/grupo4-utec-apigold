@@ -18,11 +18,13 @@ public class ContainerCommandController {
         this.service = service;
     }
 
+    @CrossOrigin
     @GetMapping
     public List<Container> getAll() {
         return service.getAll();
     }
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public Container getById(@PathVariable long id) {
         return service.getById(id);
