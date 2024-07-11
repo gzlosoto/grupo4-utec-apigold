@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  app:
+    image: 'grupo4-utec-apigold'
+    build:
+      context: .
+    container_name: utec-api
+    ports:
+      - '8080:8080'
