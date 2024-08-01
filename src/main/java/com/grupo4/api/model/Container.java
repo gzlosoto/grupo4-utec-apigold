@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @DynamoDBTable(tableName = "grupo4_gold_tbl_1")
 public class Container {
-    private long rowId_UNH;
+    private String rowId_UNH;
     private String Agency;
     private String BOOKING;
     private String CARRIER;
@@ -24,12 +24,12 @@ public class Container {
     private String DISCHARGE;
     private String LOAD;
     private String TRANSHIPMENT;
-    
-    @DynamoDBHashKey(attributeName = "rowId_UNH")
-    public long getRowId_UNH() {
+    //rowId_UNH
+    @DynamoDBHashKey(attributeName = "rowidunh")
+    public String getRowId_UNH() {
 		return rowId_UNH;
 	}
-	public void setRowId_UNH(long rowId_UNH) {
+	public void setRowId_UNH(String rowId_UNH) {
 		this.rowId_UNH = rowId_UNH;
 	}
 	
@@ -41,7 +41,7 @@ public class Container {
 		Agency = agency;
 	}
 	
-	@DynamoDBAttribute(attributeName = "BOOKING")
+	@DynamoDBAttribute(attributeName = "booking")
 	public String getBOOKING() {
 		return BOOKING;
 	}
@@ -57,7 +57,7 @@ public class Container {
 		CARRIER = cARRIER;
 	}
 	
-	@DynamoDBAttribute(attributeName = "Date_time")
+	@DynamoDBAttribute(attributeName = "date_time")
 	public String getDate_time() {
 		return Date_time;
 	}

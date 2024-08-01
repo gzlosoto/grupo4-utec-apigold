@@ -27,4 +27,9 @@ public class MusicaCommandController {
     public Musica getById(@PathVariable long id) {
         return service.getById(id);
     }
+
+    @GetMapping("/song")
+    public String getBySong() {
+        return "Cancion 1";
+    }
 }
